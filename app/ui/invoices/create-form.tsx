@@ -66,7 +66,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 name="amount"
                 type="number"
                 step="0.01"
-                aria-labelledby='amount-error'
+                aria-labelledby="amount-error"
                 placeholder="Enter USD amount"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               />
@@ -96,7 +96,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   name="status"
                   type="radio"
                   value="pending"
-                  aria-labelledby='status-error'
+                  aria-labelledby="status-error"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
@@ -112,7 +112,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   name="status"
                   type="radio"
                   value="paid"
-                  aria-labelledby='status-error'
+                  aria-labelledby="status-error"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
@@ -135,8 +135,10 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         </fieldset>
 
         <div aria-live="polite" aria-atomic="true">
-            {state.message && <p className="mt-2 text-sm text-red-500">{state.message}</p>}
-          </div>
+          {state.message && (
+            <p className="mt-2 text-sm text-red-500">{state.message}</p>
+          )}
+        </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link

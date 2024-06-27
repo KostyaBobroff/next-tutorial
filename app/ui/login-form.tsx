@@ -13,12 +13,9 @@ import { authenticate } from '@/app/lib/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 
 export default function LoginForm() {
-  const [errorMessage, formAction] = useFormState(
-    authenticate,
-    undefined,
-  );
+  const [errorMessage, formAction] = useFormState(authenticate, undefined);
 
-  const {pending: isPending} = useFormStatus()
+  const { pending: isPending } = useFormStatus();
 
   return (
     <form className="space-y-3" action={formAction}>
@@ -67,10 +64,13 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
-        <LoginButton disabled={isPending}/>
-        <div className="flex h-8 items-end space-x-1" aria-live="polite"
-          aria-atomic="true">
-        {errorMessage && (
+        <LoginButton disabled={isPending} />
+        <div
+          className="flex h-8 items-end space-x-1"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {errorMessage && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
               <p className="text-sm text-red-500">{errorMessage}</p>
@@ -82,7 +82,7 @@ export default function LoginForm() {
   );
 }
 
-function LoginButton({disabled}: {disabled?: boolean}) {
+function LoginButton({ disabled }: { disabled?: boolean }) {
   return (
     <Button className="mt-4 w-full" aria-disabled={disabled}>
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
